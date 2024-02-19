@@ -18,6 +18,7 @@
         , files ? { }
         , extraNixosConfig ? { }
         , extraHomeConfig ? { }
+        , extraPackages ? [ ]
         , pkgs
         ,
         }: {
@@ -30,6 +31,8 @@
           homeConfig = {
             home.username = username;
             home.homeDirectory = "/home/${username}";
+
+            home.packages = extraPackages;
 
             programs.git.userName = name;
             programs.git.userEmail = email;
