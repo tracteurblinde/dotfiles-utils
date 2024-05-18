@@ -13,6 +13,7 @@
         , username
         , email
         , groups
+        , hosts
         , face
         , background
         , files ? { }
@@ -22,6 +23,7 @@
         , pkgs
         ,
         }: {
+          inherit hosts;
           nixosConfig = {
             isNormalUser = true;
             description = name;
