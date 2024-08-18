@@ -3,7 +3,7 @@
   inputs = { };
   outputs = { ... }:
     rec {
-      unfreeMerger = import ./unfree_merger.nix;
+      unfreeMerger = import ./nixpkgs_merger.nix;
       listDir = dir: builtins.attrNames (builtins.readDir dir);
       trimNixExts = configs: builtins.map (entry: builtins.substring 0 (builtins.stringLength entry - 4) entry) configs;
       findNixFilesInDir = dir: trimNixExts (builtins.filter (u: (builtins.substring (builtins.stringLength u - 4) 4 u) == ".nix") (listDir dir));
