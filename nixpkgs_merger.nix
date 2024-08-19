@@ -19,6 +19,6 @@
 
   config = {
     nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) config.nixpkgs.allowUnfreePackages;
-    nixpkgs.config.allowInsecurePredicate = pkg: builtins.elem (lib.getName pkg) config.nixpkgs.permittedInsecurePackages;
+    nixpkgs.config.allowInsecurePredicate = pkg: builtins.elem "${lib.getName pkg}-${lib.getVersion pkg}" config.nixpkgs.permittedInsecurePackages;
   };
 }
